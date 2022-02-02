@@ -1,6 +1,6 @@
 # cuaev_cpp
 
-Instruction
+Build instruction
 ```
 git clone git@github.com:aiqm/torchani.git
 mv torchani/torchani/cuaev/* ./cuaev
