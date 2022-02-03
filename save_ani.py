@@ -19,7 +19,7 @@ def save_cuda_aev():
     ShfA = torch.tensor([9.0000000e-01, 1.5500000e+00,
                          2.2000000e+00, 2.8500000e+00], device=device)
     num_species = 4
-    cuaev_computer = torchani.AEVComputer(Rcr, Rca, EtaR, ShfR, EtaA, Zeta, ShfA, ShfZ, num_species, use_cuda_extension=False)
+    cuaev_computer = torchani.AEVComputer(Rcr, Rca, EtaR, ShfR, EtaA, Zeta, ShfA, ShfZ, num_species, use_cuda_extension=True)
 
     script_module = torch.jit.script(cuaev_computer)
     script_module.save('model.pt')

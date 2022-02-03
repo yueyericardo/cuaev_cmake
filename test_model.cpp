@@ -41,11 +41,11 @@ int main(int argc, const char *argv[]) {
         {-4.4978600, 0.8211300, 0.5604100},
         {-4.4978700, -0.8000100, 0.4155600},
         {0.00000000, -0.00000000, -0.00000000}}},
-      torch::TensorOptions().requires_grad(true).dtype(torch::kDouble));
+      torch::TensorOptions().requires_grad(true).dtype(torch::kFloat32));
 
   torch::Tensor species = torch::tensor(
       {{1, 0, 0, 0, 0}, {2, 0, 0, 0, -1}},
-      torch::TensorOptions().requires_grad(false).dtype(torch::kLong));
+      torch::TensorOptions().requires_grad(false).dtype(torch::kInt32));
 
   // Define the input variables
   coords = coords.to(device);

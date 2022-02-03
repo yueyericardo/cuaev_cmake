@@ -24,6 +24,7 @@ cp torchani/torchani/cuaev/* ./cuaev
 python save_ani.py
 # should print torch.Size([2, 5, 384])
 rm -rf build; mkdir build; cd build
+# for debug add -DCMAKE_BUILD_TYPE=Debug
 cmake -DCMAKE_PREFIX_PATH="$(python -c 'import torch.utils; print(torch.utils.cmake_prefix_path)')" ..
 make
 ./test_model ../model.pt
