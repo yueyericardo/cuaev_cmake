@@ -45,7 +45,7 @@ int main(int argc, const char *argv[]) {
 
   torch::Tensor species = torch::tensor(
       {{1, 0, 0, 0, 0}, {2, 0, 0, 0, -1}},
-      torch::TensorOptions().requires_grad(false).dtype(torch::kInt32));
+      torch::TensorOptions().requires_grad(false).dtype(torch::kLong));
 
   // Define the input variables
   coords = coords.to(device);
@@ -58,5 +58,7 @@ int main(int argc, const char *argv[]) {
 
   // Run the model
   auto aev = model.forward(inputs).toTuple()->elements()[1].toTensor();
-  std::cout << aev.sizes() << std::endl;
+  std::cout << "First call:  " << aev.sizes() << std::endl;
+  auto aev1 = model.forward(inputs).toTuple()->elements()[1].toTensor();
+  std::cout << "Second call: " << aev1.sizes() << std::endl;
 }

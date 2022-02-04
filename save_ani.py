@@ -6,7 +6,7 @@ import torchani
 
 
 def save_cuda_aev():
-    device = torch.device('cuda')
+    device = torch.device('cpu')
     Rcr = 5.2000e+00
     Rca = 3.5000e+00
     EtaR = torch.tensor([1.6000000e+01], device=device)
@@ -19,7 +19,7 @@ def save_cuda_aev():
     ShfA = torch.tensor([9.0000000e-01, 1.5500000e+00,
                          2.2000000e+00, 2.8500000e+00], device=device)
     num_species = 4
-    cuaev_computer = torchani.AEVComputer(Rcr, Rca, EtaR, ShfR, EtaA, Zeta, ShfA, ShfZ, num_species, use_cuda_extension=True)
+    cuaev_computer = torchani.AEVComputer(Rcr, Rca, EtaR, ShfR, EtaA, Zeta, ShfA, ShfZ, num_species, use_cuda_extension=False)
 
     script_module = torch.jit.script(cuaev_computer)
     script_module.save('model.pt')
