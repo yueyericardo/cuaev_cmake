@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 project(test_model)
 
 find_package(Torch REQUIRED)
-find_package(PythonLibs REQUIRED)
+find_package(Python REQUIRED COMPONENTS Interpreter Development)
 add_subdirectory(cuaev)
 
 add_executable(test_model test_model.cpp)
